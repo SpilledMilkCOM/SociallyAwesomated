@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociallyAwesomated.App", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.UWP.Common", "SM.UWP.Common\SM.UWP.Common.csproj", "{A652577E-8C5F-4DE9-A57E-8A80B56F8DB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociallyAwesomated.Tests", "SociallyAwesomated.Tests\SociallyAwesomated.Tests.csproj", "{B3ACEF41-2B78-4B76-B392-332A14165ABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,26 @@ Global
 		{A652577E-8C5F-4DE9-A57E-8A80B56F8DB6}.Release|x64.Build.0 = Release|x64
 		{A652577E-8C5F-4DE9-A57E-8A80B56F8DB6}.Release|x86.ActiveCfg = Release|x86
 		{A652577E-8C5F-4DE9-A57E-8A80B56F8DB6}.Release|x86.Build.0 = Release|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|ARM.Build.0 = Debug|ARM
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|ARM.Deploy.0 = Debug|ARM
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|x64.ActiveCfg = Debug|x64
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|x64.Build.0 = Debug|x64
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|x64.Deploy.0 = Debug|x64
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|x86.ActiveCfg = Debug|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|x86.Build.0 = Debug|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Debug|x86.Deploy.0 = Debug|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|Any CPU.ActiveCfg = Release|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|ARM.ActiveCfg = Release|ARM
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|ARM.Build.0 = Release|ARM
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|ARM.Deploy.0 = Release|ARM
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|x64.ActiveCfg = Release|x64
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|x64.Build.0 = Release|x64
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|x64.Deploy.0 = Release|x64
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|x86.ActiveCfg = Release|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|x86.Build.0 = Release|x86
+		{B3ACEF41-2B78-4B76-B392-332A14165ABC}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
