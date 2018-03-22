@@ -99,6 +99,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -133,7 +134,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SM.UWP.Common\SM.UWP.Common.csproj">
+      <Project>{a652577e-8c5f-4de9-a57e-8a80b56f8db6}</Project>
+      <Name>SM.UWP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SociallyAwesomated\SociallyAwesomated.csproj">
+      <Project>{0f090de3-c995-4d22-8b4d-a3a202e8442b}</Project>
+      <Name>SociallyAwesomated</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
