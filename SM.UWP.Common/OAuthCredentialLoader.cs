@@ -6,9 +6,9 @@ namespace SM.UWP.Common
 	{
 		public IOAuthCredentials Load(string jsonFileName)
 		{
-			// TODO: Read the json file.
+			var loader = new ConfigurationLoaderJSON();
 
-			return null;
+			return loader.Load<OAuthCredentials>(jsonFileName);
 		}
 	}
 }

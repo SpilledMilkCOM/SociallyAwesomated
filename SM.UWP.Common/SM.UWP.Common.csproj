@@ -106,6 +106,12 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationLoaderJSON.cs" />
+    <Compile Include="Interfaces\IConfiguration.cs" />
+    <Compile Include="Serialization\FormattedJsonSerializationUtility.cs" />
+    <Compile Include="Interfaces\IConfigurationLoader.cs" />
+    <Compile Include="Serialization\ISerializationUtility.cs" />
+    <Compile Include="Serialization\JsonSerializationUtility.cs" />
     <Compile Include="OAuthCredentialLoader.cs" />
     <Compile Include="OAuthCredentials.cs" />
     <Compile Include="Interfaces\IOAuthCredentials.cs" />
@@ -116,6 +122,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

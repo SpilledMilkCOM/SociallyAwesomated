@@ -1,6 +1,6 @@
 ﻿namespace SM.UWP.Common.Interfaces
 {
-	public interface IOAuthCredentials
+	public interface IOAuthCredentials : IConfiguration
 	{
 		string AccessToken { get; set; }
 
