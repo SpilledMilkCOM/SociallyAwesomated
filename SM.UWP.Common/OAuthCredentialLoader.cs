@@ -1,6 +1,6 @@
-﻿using SM.UWP.Common.Interfaces;
+﻿using SM.Common.Interfaces;
 
-namespace SM.UWP.Common
+namespace SM.Common
 {
 	public class OAuthCredentialLoader
 	{

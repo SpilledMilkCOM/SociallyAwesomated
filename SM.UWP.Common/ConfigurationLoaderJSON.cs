@@ -1,8 +1,8 @@
-﻿using SM.UWP.Common.Interfaces;
+﻿using SM.Common.Interfaces;
 using System.IO;
 using SM.Common.Serialization;
 
-namespace SM.UWP.Common
+namespace SM.Common
 {
 	public class ConfigurationLoaderJSON : IConfigurationLoader
 	{

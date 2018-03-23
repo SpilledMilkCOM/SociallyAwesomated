@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SM.UWP.Common;
+using SM.Common;
 
 namespace SociallyAwesomated.Tests.Common
 {

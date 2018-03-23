@@ -7,7 +7,7 @@
     <ProjectGuid>{A652577E-8C5F-4DE9-A57E-8A80B56F8DB6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SM.UWP.Common</RootNamespace>
+    <RootNamespace>SM.Common</RootNamespace>
     <AssemblyName>SM.UWP.Common</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
@@ -106,8 +106,13 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CacheUtility.cs" />
     <Compile Include="ConfigurationLoaderJSON.cs" />
     <Compile Include="Interfaces\IConfiguration.cs" />
+    <Compile Include="MVVM\ModelBase.cs" />
+    <Compile Include="MVVM\RelayCommand.cs" />
+    <Compile Include="MVVM\ViewModelBase.cs" />
+    <Compile Include="MVVM\ViewUtility.cs" />
     <Compile Include="Serialization\FormattedJsonSerializationUtility.cs" />
     <Compile Include="Interfaces\IConfigurationLoader.cs" />
     <Compile Include="Serialization\ISerializationUtility.cs" />

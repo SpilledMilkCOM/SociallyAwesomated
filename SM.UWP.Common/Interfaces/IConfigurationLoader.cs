@@ -1,4 +1,4 @@
-﻿namespace SM.UWP.Common.Interfaces
+﻿namespace SM.Common.Interfaces
 {
 	public interface IConfigurationLoader
 	{

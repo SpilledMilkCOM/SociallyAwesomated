@@ -5,9 +5,58 @@
     xmlns:local="using:SociallyAwesomated.App"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+	xmlns:viewModels="using:SociallyAwesomated.App.ViewModels"
+	mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	<Page.DataContext>
+		<viewModels:MainPageViewModel />
+	</Page.DataContext>
 
-    </Grid>
+	<Page.Resources>
+		<ResourceDictionary>
+			<DataTemplate x:Name="TweetTemplate">
+				<Grid HorizontalAlignment="Stretch">
+					<Rectangle Fill="White"
+							   Opacity="0.15" />
+					<TextBlock Text="{Binding Text}"
+							   TextWrapping="Wrap"
+							   FontSize="25"
+							   Margin="0,8,0,8"
+							   VerticalAlignment="Center" />
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
+	</Page.Resources>
+
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<StackPanel>
+				<ProgressBar x:Name="uxProgressBar"
+							 Height="15"
+							 IsIndeterminate="True"
+							 Background="Transparent"
+							 Foreground="#45CCF5"
+							 VerticalAlignment="Bottom"
+							 Visibility="{Binding BusyVisibility}" />
+
+				<TextBlock x:Name="uxMessage"
+						   Grid.Row="5"
+						   Text="{Binding Message}"
+						   Foreground="{Binding MessageBrush}"
+						   Visibility="{Binding MessageVisibility}"
+						   HorizontalAlignment="Center" />
+			</StackPanel>
+
+			<ListBox x:Name="uxTweets"
+					 Grid.Row="1"
+					 ItemsSource="{Binding Tweets}"
+					 ItemTemplate="{StaticResource TweetTemplate}" />
+		</Grid>
+	</Grid>
+
 </Page>

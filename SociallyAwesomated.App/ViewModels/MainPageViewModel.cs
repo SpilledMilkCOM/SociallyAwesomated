@@ -8,7 +8,7 @@ namespace SociallyAwesomated.App.ViewModels
 		private ISociallyAutomated _social = null;
 
 		public MainPageViewModel()
-			: this(new TwitterAutomated(new OAuthCredentialLoader().Load("OAuth.default.secret.json")))
+//			: this(new TwitterAutomated(new OAuthCredentialLoader().Load("OAuth.default.secret.json")))
 		{
 
 		}

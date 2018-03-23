@@ -1,5 +1,5 @@
 ﻿using SM.SociallyAwesomated;
-using SM.UWP.Common.Interfaces;
+using SM.Common.Interfaces;
 using SociallyAwesomated.Interfaces;
 using System;
 using System.Collections.Generic;
