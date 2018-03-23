@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.Services.Twitter;
 using SM.Common;
+using SM.Common.Interfaces;
 using SM.Common.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
-namespace SM.Twitter.Automated.ViewModels
+namespace SociallyAwesomated.App.ViewModels
 {
 	public class CredentialsViewModel : ViewModelBase
 	{
@@ -28,15 +29,20 @@ namespace SM.Twitter.Automated.ViewModels
 
 		public CredentialsViewModel()
 		{
-			var test = new OAuthCredentialLoader();
+			IOAuthCredentials oathConfiguration = null;
 
-			// TODO: File name from configuration.
+			if (!Windows.ApplicationModel.DesignMode.DesignModeEnabled)
+			{
+				var test = new OAuthCredentialLoader();
 
-			var oathConfiguration = test.Load("OAuth.default.secret.json");        // File is marked as "content" - Copy if newer.
+				// TODO: File name from configuration.
 
-			CallbackUrl = oathConfiguration.CallbackUri;
-			ConsumerKey = oathConfiguration.ConsumerKey;
-			ConsumerSecrect = oathConfiguration.ConsumerSecret;
+				oathConfiguration = test.Load("OAuth.default.secret.json");        // File is marked as "content" - Copy if newer.
+			}
+
+			CallbackUrl = oathConfiguration?.CallbackUri;
+			ConsumerKey = oathConfiguration?.ConsumerKey;
+			ConsumerSecrect = oathConfiguration?.ConsumerSecret;
 			Tweets = new ObservableCollection<Tweet>();
 
 			ConnectCommand = new RelayCommand(Connect, CanConnect);
