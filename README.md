@@ -20,3 +20,6 @@ All of the unit tests for the UW projects.
 
 #### TODO
 Figure out what hashtags are trending the best to include them in a tweet.  Start with movie titles.
+
+#### References
+https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview
