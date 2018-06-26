@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Windows.System;
+﻿using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -134,7 +132,6 @@ namespace SociallyAwesomated.App
 
 		private void uxNavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
 		{
-
 		}
 	}
 }

@@ -8,6 +8,14 @@
 	  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 	<Grid>
-		<TextBlock>Home Sweet Home</TextBlock>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
+		<Rectangle  Fill="Aquamarine" Grid.ColumnSpan="2" Margin="100" ></Rectangle>
+		
+		<TextBlock FontSize="40">Home Sweet Home</TextBlock>
+		<TextBlock FontSize="40" Grid.Column="1">Home Sweet Home</TextBlock>
 	</Grid>
 </Page>

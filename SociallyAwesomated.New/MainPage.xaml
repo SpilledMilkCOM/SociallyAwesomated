@@ -16,7 +16,8 @@
 			<NavigationView.MenuItems>
 				<NavigationViewItem Icon="Home"
 									Content="Home"
-									Tag="Home" />
+									Tag="home"
+									IsSelected="True" />
 				<NavigationViewItemHeader Content="Twitter" />
 				<NavigationViewItem Icon="Street"
 									Content="Events"
@@ -33,6 +34,14 @@
 									Content="Followers"
 									Tag="Facebook.Followers" />
 			</NavigationView.MenuItems>
+
+			<Frame x:Name="uxContent">
+				<!--<Frame.ContentTransitions>
+					<TransitionCollection>
+						<NavigationThemeTransition />
+					</TransitionCollection>
+				</Frame.ContentTransitions>-->
+			</Frame>
 		</NavigationView>
 	</Grid>
 </Page>

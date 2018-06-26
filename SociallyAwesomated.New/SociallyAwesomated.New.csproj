@@ -107,6 +107,8 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="OAuth.default.json" />
+    <None Include="OAuth.default.secret.json" />
     <None Include="SociallyAwesomated.New_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

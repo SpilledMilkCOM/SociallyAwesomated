@@ -146,10 +146,6 @@
       <Project>{a652577e-8c5f-4de9-a57e-8a80b56f8db6}</Project>
       <Name>SM.UWP.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SociallyAwesomated.App\SociallyAwesomated.App.csproj">
-      <Project>{39ebe8c1-96c7-4a0d-9092-71c93a687423}</Project>
-      <Name>SociallyAwesomated.App</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SociallyAwesomated\SociallyAwesomated.csproj">
       <Project>{0f090de3-c995-4d22-8b4d-a3a202e8442b}</Project>
       <Name>SociallyAwesomated</Name>
