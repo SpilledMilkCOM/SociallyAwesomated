@@ -1,0 +1,38 @@
+﻿<Page x:Class="SociallyAwesomated.New.MainPage"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:local="using:SociallyAwesomated.New"
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	  mc:Ignorable="d"
+	  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+	<Grid>
+		<NavigationView x:Name="uxNavView"
+						Header="Socially Awesomated"
+						IsTabStop="False"
+						ItemInvoked="uxNavView_ItemInvoked"
+						SelectionChanged="uxNavView_SelectionChanged">
+			<NavigationView.MenuItems>
+				<NavigationViewItem Icon="Home"
+									Content="Home"
+									Tag="Home" />
+				<NavigationViewItemHeader Content="Twitter" />
+				<NavigationViewItem Icon="Street"
+									Content="Events"
+									Tag="Twitter.Events" />
+				<NavigationViewItem Icon="Contact2"
+									Content="Followers"
+									Tag="Twitter.Followers" />
+
+				<NavigationViewItemHeader Content="Facebook" />
+				<NavigationViewItem Icon="Street"
+									Content="Events"
+									Tag="Facebook.Events" />
+				<NavigationViewItem Icon="Contact2"
+									Content="Followers"
+									Tag="Facebook.Followers" />
+			</NavigationView.MenuItems>
+		</NavigationView>
+	</Grid>
+</Page>

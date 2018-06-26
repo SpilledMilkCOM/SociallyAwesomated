@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="SociallyAwesomated.App.TwitterEvents"
+    x:Class="SociallyAwesomated.App.FacebookEvents"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SociallyAwesomated.App"
@@ -9,8 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-		<TextBlock Text="Tweets"
+		<TextBlock Text="Statuses"
 				   FontSize="{StaticResource ControlContentThemeFontSize}"
-				   Margin="10"/>
+				   Margin="10" />
 	</Grid>
 </Page>

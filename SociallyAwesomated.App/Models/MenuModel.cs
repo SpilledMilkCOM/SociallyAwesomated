@@ -8,6 +8,7 @@ namespace SociallyAwesomated.App
     {
 		public const string FACEBOOK_EVENTS = "Facebook.Events";
 		public const string FACEBOOK_FOLLOWERS = "Facebook.Followers";
+		public const string HOME = "home";
 		public const string TWITTER_EVENTS = "Twitter.Events";
 		public const string TWITTER_FOLLOWERS = "Twitter.Followers";
 		public const string SETTINGS = "settings";
@@ -21,6 +22,7 @@ namespace SociallyAwesomated.App
 			_viewMap.Add(SETTINGS, typeof(Credentials));
 			_viewMap.Add(FACEBOOK_EVENTS, typeof(FacebookEvents));
 			_viewMap.Add(FACEBOOK_FOLLOWERS, typeof(FacebookEvents));
+			_viewMap.Add(HOME, typeof(Home));
 			_viewMap.Add(TWITTER_EVENTS, typeof(TwitterEvents));
 			_viewMap.Add(TWITTER_FOLLOWERS, typeof(TwitterEvents));
 		}

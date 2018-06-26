@@ -30,6 +30,16 @@ namespace SociallyAwesomated.App
 			args.Handled = true;
 		}
 
+		private void NavigateToView(string viewName)
+		{
+			var view = _viewMap.Map(viewName);
+
+			if (view != null)
+			{
+				uxContent.Navigate(view);
+			}
+		}
+
 		private bool On_BackRequested()
 		{
 			bool navigated = false;
@@ -54,7 +64,7 @@ namespace SociallyAwesomated.App
 
 		// ----==== CONTROL EVENTS ====----------------------------------------------
 
-		public void uxContent_Navigated(object sender, NavigationEventArgs e)
+		private void uxContent_Navigated(object sender, NavigationEventArgs e)
 		{
 			//uxNavView.IsBackEnabled = uxContent.CanGoBack;
 
@@ -73,53 +83,58 @@ namespace SociallyAwesomated.App
 			}
 		}
 
-		public void uxNavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+		private void uxNavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
 		{
 			if (args != null)
 			{
-				Type navigateTo = null;
+				string navigateTo = null;
 
 				if (args.IsSettingsInvoked)
 				{
-					navigateTo = _viewMap.Map(MenuModel.SETTINGS);
+					navigateTo = MenuModel.SETTINGS;
 				}
 				else
 				{
 					var invokedItem = args.InvokedItem as NavigationViewItem;
 
-					navigateTo = _viewMap.Map(invokedItem?.Tag as string);
+					navigateTo = invokedItem?.Tag as string;
 				}
 
 				if (navigateTo != null)
 				{
-					uxContent.Navigate(navigateTo);
+					NavigateToView(navigateTo);
 				}
 			}
 		}
 
-		public void uxNavView_Loaded(object sender, RoutedEventArgs e)
+		private void uxNavView_Loaded(object sender, RoutedEventArgs e)
 		{
-			uxContent.Navigated += uxContent_Navigated;
-
 			// NavView doesn't load any page by default: you need to specify it
-			uxContent.Navigate(_viewMap.Map(MenuModel.SETTINGS));
+			NavigateToView(MenuModel.HOME);
 
 			// add keyboard accelerators for backwards navigation
 
-			KeyboardAccelerator GoBack = new KeyboardAccelerator();
+			//KeyboardAccelerator goBack = new KeyboardAccelerator();
 
-			GoBack.Key = VirtualKey.GoBack;
-			GoBack.Invoked += BackInvoked;
+			//goBack.Key = VirtualKey.GoBack;
+			//goBack.Invoked += BackInvoked;
 
-			KeyboardAccelerator AltLeft = new KeyboardAccelerator();
-			AltLeft.Key = VirtualKey.Left;
-			AltLeft.Invoked += BackInvoked;
-			this.KeyboardAccelerators.Add(GoBack);
-			this.KeyboardAccelerators.Add(AltLeft);
+			//KeyboardAccelerator altLeft = new KeyboardAccelerator();
 
-			// ALT routes here
+			//altLeft.Key = VirtualKey.Left;
+			//altLeft.Invoked += BackInvoked;
 
-			AltLeft.Modifiers = VirtualKeyModifiers.Menu;
+			//KeyboardAccelerators.Add(goBack);
+			//KeyboardAccelerators.Add(altLeft);
+
+			//// ALT routes here
+
+			//altLeft.Modifiers = VirtualKeyModifiers.Menu;
+		}
+
+		private void uxNavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+		{
+
 		}
 	}
 }

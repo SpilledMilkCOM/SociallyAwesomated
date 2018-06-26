@@ -15,11 +15,15 @@ The class library that wraps the rules of social networking.
 #### SociallyAwesomated.App (UW)
 The UWP app (GUI) to drive the automation.
 
+*Use Segoe MDL2 Assets font for icons*
+
 #### SociallyAwesomated.Tests (UW)
 All of the unit tests for the UW projects.
 
 #### TODO
-Figure out what hashtags are trending the best to include them in a tweet.  Start with movie titles.
+* Test Community Toolkit for Followers
+* Figure out what hashtags are trending the best to include them in a tweet.  Start with movie titles.
 
 #### References
-https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview
+* [Navigation view](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview)
+* [Using the NavigationView in your UWP applications](https://blogs.msdn.microsoft.com/appconsult/2018/05/06/using-the-navigationview-in-your-uwp-applications/)

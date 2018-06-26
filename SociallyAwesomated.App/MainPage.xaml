@@ -5,13 +5,14 @@
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	  xmlns:viewModels="using:SociallyAwesomated.App.ViewModels"
-	  mc:Ignorable="d">
+	  mc:Ignorable="d"
+	  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-	<Page.DataContext>
+	<!--<Page.DataContext>
 		<viewModels:MainPageViewModel />
-	</Page.DataContext>
+	</Page.DataContext>-->
 
-	<Page.Resources>
+	<!--<Page.Resources>
 		<ResourceDictionary>
 			<DataTemplate x:Name="TweetTemplate">
 				<Grid HorizontalAlignment="Stretch">
@@ -25,17 +26,21 @@
 				</Grid>
 			</DataTemplate>
 		</ResourceDictionary>
-	</Page.Resources>
+	</Page.Resources>-->
 
-	<Grid x:Name="uxLayoutRoot"
-		  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+	<Grid x:Name="uxLayoutRoot">
 		<NavigationView x:Name="uxNavView"
-						Header="Socially Awesomated"
 						AlwaysShowHeader="False"
+						Header="Socially Awesomated"
+						IsTabStop="False"
 						ItemInvoked="uxNavView_ItemInvoked"
-						Loaded="uxNavView_Loaded">
+						Loaded="uxNavView_Loaded"
+						SelectionChanged="uxNavView_SelectionChanged">
 			<NavigationView.MenuItems>
+				<NavigationViewItem Icon="Home"
+									Content="Home"
+									Tag="Home"
+									IsSelected="True" />
 				<NavigationViewItemHeader Content="Twitter" />
 				<NavigationViewItem Icon="Street"
 									Content="Events"
@@ -53,10 +58,10 @@
 									Tag="Facebook.Followers" />
 			</NavigationView.MenuItems>
 
-			<NavigationView.AutoSuggestBox>
+			<!--<NavigationView.AutoSuggestBox>
 				<AutoSuggestBox x:Name="uxSearch"
 								QueryIcon="Find" />
-			</NavigationView.AutoSuggestBox>
+			</NavigationView.AutoSuggestBox>-->
 
 			<Frame x:Name="uxContent">
 				<Frame.ContentTransitions>
@@ -71,39 +76,6 @@
 				   Text="Socially Awesomated"
 				   Style="{StaticResource CaptionTextBlockStyle}"
 				   Margin="12,8" />
-
-		<!--
-		
-		<Grid>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition Height="*" />
-			</Grid.RowDefinitions>
-
-			<StackPanel>
-				<ProgressBar x:Name="uxProgressBar"
-							 Height="15"
-							 IsIndeterminate="True"
-							 Background="Transparent"
-							 Foreground="#45CCF5"
-							 VerticalAlignment="Bottom"
-							 Visibility="{Binding BusyVisibility}" />
-
-				<TextBlock x:Name="uxMessage"
-						   Grid.Row="5"
-						   Text="{Binding Message}"
-						   Foreground="{Binding MessageBrush}"
-						   Visibility="{Binding MessageVisibility}"
-						   HorizontalAlignment="Center" />
-			</StackPanel>
-
-			<ListBox x:Name="uxTweets"
-					 Grid.Row="1"
-					 ItemsSource="{Binding Tweets}"
-					 ItemTemplate="{StaticResource TweetTemplate}" />
-		</Grid>
-		
-		 -->
 	</Grid>
 
 </Page>
