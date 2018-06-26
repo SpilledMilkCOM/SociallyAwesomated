@@ -47,10 +47,10 @@
 				<NavigationViewItemHeader Content="Facebook" />
 				<NavigationViewItem Icon="Street"
 									Content="Events"
-									Tag="Twitter.Events" />
+									Tag="Facebook.Events" />
 				<NavigationViewItem Icon="Contact2"
 									Content="Followers"
-									Tag="Twitter.Followers" />
+									Tag="Facebook.Followers" />
 			</NavigationView.MenuItems>
 
 			<NavigationView.AutoSuggestBox>

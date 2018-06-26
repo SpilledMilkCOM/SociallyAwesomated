@@ -98,6 +98,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CredentialsViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
@@ -126,6 +127,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Credentials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FacebookEvents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
