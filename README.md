@@ -27,7 +27,11 @@ All of the unit tests for the UW projects.
 #### Lessons Learned
 
 * How to get the NavigationView up and running.
-* The "views" (Page's) **must** have code-behind that includes the `InitializeComponent()` in the constructor *(at the very least)* otherwise you will see nothing and get no errors when using `Frame.Navigate()`. Creating a "blank" view isn't enough.
+* The "views" (Page's) **must** have code-behind that includes the `InitializeComponent()` in the constructor *(at the very least)* otherwise you will see nothing and get no errors when using `Frame.Navigate()`.
+Creating a "blank" view isn't enough.
+* Using a `string` for the Content in a `NavigationViewItem` will not allow for the **same** text for different items.
+It **works**, but you'll never be able to find any item after the first one you found.
+Use a TextBlock with a Tag that matches the Tag in the item.
 
 #### References
 * [Navigation view](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview)

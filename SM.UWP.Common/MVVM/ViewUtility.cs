@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SM.Common.Interfaces;
+using System;
+using System.Linq;
 using Windows.ApplicationModel;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -19,6 +21,36 @@ namespace SM.Common
 		public static bool IsThemeDark()
 		{
 			return Application.Current.RequestedTheme == ApplicationTheme.Dark || DesignMode.DesignModeEnabled;
+		}
+
+		public static string ParseNavigationItemInvokedEvent(NavigationView sender, NavigationViewItemInvokedEventArgs args, IMenuModel menuModel)
+		{
+			string result = null;
+
+			if (args != null)
+			{
+				if (args.IsSettingsInvoked)
+				{
+					result = menuModel.SettingsMap;
+				}
+				else
+				{
+					// The Content property is being set to a string (versus it being part of the "contents" of the item node)
+					// InvokedItem is a string and can be compared against the navItem (which is also a string)
+					// Comparing these by strings will NOT return the second "Events" view since it will match to the first one.
+
+					// NOTE: Using a TextBlock as the Content of the NavigationViewItem
+
+					//var item = sender?.MenuItems.OfType<NavigationViewItem>().FirstOrDefault(navItem => navItem.Content.Equals(args.InvokedItem));
+
+					var invokedTag = ((TextBlock)args.InvokedItem).Tag;
+					var item = sender?.MenuItems.OfType<NavigationViewItem>().FirstOrDefault(navItem => ((FrameworkElement)navItem.Content).Tag.Equals(invokedTag));
+
+					result = item?.Tag as string;
+				}
+			}
+
+			return result;
 		}
 
 		internal static bool NeedsBackButton()
@@ -55,5 +87,6 @@ namespace SM.Common
 
 			return viewModel;
 		}
+
 	}
 }

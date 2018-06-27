@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SM.Common.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace SociallyAwesomated.App
 	/// <summary>
 	/// This MenuModel is the mapping between text and view Types; there is NO knowledge of any UI specific values.
 	/// </summary>
-    public class MenuModel
+    public class MenuModel : IMenuModel
     {
 		public const string FACEBOOK_EVENTS = "Facebook.Events";
 		public const string FACEBOOK_FOLLOWERS = "Facebook.Followers";
@@ -29,6 +30,8 @@ namespace SociallyAwesomated.App
 			_viewMap.Add(TWITTER_EVENTS, typeof(TwitterEvents));
 			_viewMap.Add(TWITTER_FOLLOWERS, typeof(TwitterEvents));
 		}
+
+		public string SettingsMap => SETTINGS;
 
 		public Type Map(string name)
 		{

@@ -15,24 +15,39 @@
 						SelectionChanged="uxNavView_SelectionChanged">
 			<NavigationView.MenuItems>
 				<NavigationViewItem Icon="Home"
-									Content="Home"
 									Tag="home"
-									IsSelected="True" />
+									IsSelected="True">
+					<TextBlock Text="Home"
+							   Tag="home" />
+				</NavigationViewItem>
+				
 				<NavigationViewItemHeader Content="Twitter" />
+				
 				<NavigationViewItem Icon="Street"
-									Content="Events"
-									Tag="Twitter.Events" />
+									Tag="Twitter.Events">
+					<TextBlock Text="Events"
+							   Tag="Twitter.Events" />
+				</NavigationViewItem>
+				
 				<NavigationViewItem Icon="Contact2"
-									Content="Followers"
-									Tag="Twitter.Followers" />
+									Tag="Twitter.Followers">
+					<TextBlock Text="Followers"
+							   Tag="Twitter.Followers" />
+				</NavigationViewItem>
 
 				<NavigationViewItemHeader Content="Facebook" />
+
 				<NavigationViewItem Icon="Street"
-									Content="Events"
-									Tag="Facebook.Events" />
+									Tag="Facebook.Events">
+					<TextBlock Text="Events"
+							   Tag="Facebook.Events" />
+				</NavigationViewItem>
+				
 				<NavigationViewItem Icon="Contact2"
-									Content="Followers"
-									Tag="Facebook.Followers" />
+									Tag="Facebook.Followers">
+					<TextBlock Text="Followers"
+							   Tag="Facebook.Followers" />
+				</NavigationViewItem>
 			</NavigationView.MenuItems>
 
 			<Frame x:Name="uxContent">

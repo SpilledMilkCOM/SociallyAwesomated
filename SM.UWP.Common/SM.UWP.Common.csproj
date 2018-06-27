@@ -109,6 +109,7 @@
     <Compile Include="CacheUtility.cs" />
     <Compile Include="ConfigurationLoaderJSON.cs" />
     <Compile Include="Interfaces\IConfiguration.cs" />
+    <Compile Include="Interfaces\IMenuModel.cs" />
     <Compile Include="MVVM\ModelBase.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />

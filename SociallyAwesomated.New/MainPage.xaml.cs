@@ -1,5 +1,8 @@
-﻿using SociallyAwesomated.App;
+﻿using SM.Common;
+using SM.Common.Interfaces;
+using SociallyAwesomated.App;
 using System.Linq;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -14,7 +17,7 @@ namespace SociallyAwesomated.New
 	/// </summary>
 	public sealed partial class MainPage : Page
 	{
-		private readonly MenuModel _viewMap;
+		private readonly IMenuModel _viewMap;
 
 		public MainPage()
 		{
@@ -46,28 +49,11 @@ namespace SociallyAwesomated.New
 
 		private void uxNavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
 		{
-			if (args != null)
+			var navigateTo = ViewUtility.ParseNavigationItemInvokedEvent(sender, args, _viewMap);
+
+			if (navigateTo != null)
 			{
-				string navigateTo = null;
-
-				if (args.IsSettingsInvoked)
-				{
-					navigateTo = MenuModel.SETTINGS;
-				}
-				else
-				{
-					// The Content property is being set to a string (versus it being part of the "contents" of the item node)
-					// InvokedItem is a string and can be compared against the navItem (which is also a string)
-
-					var item = sender?.MenuItems.OfType<NavigationViewItem>().FirstOrDefault(navItem => navItem.Content.Equals(args.InvokedItem));
-
-					navigateTo = item?.Tag as string;
-				}
-
-				if (navigateTo != null)
-				{
-					NavigateToView(navigateTo);
-				}
+				NavigateToView(navigateTo);
 			}
 		}
 
@@ -78,22 +64,22 @@ namespace SociallyAwesomated.New
 
 			// add keyboard accelerators for backwards navigation
 
-			//KeyboardAccelerator goBack = new KeyboardAccelerator();
+			KeyboardAccelerator goBack = new KeyboardAccelerator();
 
-			//goBack.Key = VirtualKey.GoBack;
-			//goBack.Invoked += BackInvoked;
+			goBack.Key = VirtualKey.GoBack;
+			goBack.Invoked += BackInvoked;
 
-			//KeyboardAccelerator altLeft = new KeyboardAccelerator();
+			KeyboardAccelerator altLeft = new KeyboardAccelerator();
 
-			//altLeft.Key = VirtualKey.Left;
-			//altLeft.Invoked += BackInvoked;
+			altLeft.Key = VirtualKey.Left;
+			altLeft.Invoked += BackInvoked;
 
-			//KeyboardAccelerators.Add(goBack);
-			//KeyboardAccelerators.Add(altLeft);
+			KeyboardAccelerators.Add(goBack);
+			KeyboardAccelerators.Add(altLeft);
 
-			//// ALT routes here
+			// ALT routes here
 
-			//altLeft.Modifiers = VirtualKeyModifiers.Menu;
+			altLeft.Modifiers = VirtualKeyModifiers.Menu;
 		}
 
 		private void uxNavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
