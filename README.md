@@ -12,8 +12,10 @@ Contains all the common stuff that COULD be in a NuGet package, but I'm too lazy
 #### SociallyAwesomated (UW)
 The class library that wraps the rules of social networking.
 
-#### SociallyAwesomated.App (UW)
+#### SociallyAwesomated.New (UW)
 The UWP app (GUI) to drive the automation.
+
+* Manage the application keys at http://apps.twitter.com
 
 *Use Segoe MDL2 Assets font for icons*
 

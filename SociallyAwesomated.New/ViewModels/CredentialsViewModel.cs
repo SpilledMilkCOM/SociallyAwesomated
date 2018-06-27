@@ -19,11 +19,9 @@ namespace SociallyAwesomated.App.ViewModels
 		private string _callbackUrl;
 		private string _consumerKey;
 		private string _consumerSecrect;
-		private string _filter;
 		private string _message;
 		private Brush _messageBrush;
 		private Visibility _messageVisibility;
-		private ObservableCollection<Tweet> _tweets;
 		private Uri _userImage;
 		private string _userScreenName;
 
@@ -45,6 +43,10 @@ namespace SociallyAwesomated.App.ViewModels
 				{
 					throw ex;
 				}
+
+				BusyVisibility = ToVisibility(false);
+
+				ConnectCommand = new RelayCommand(Connect, CanConnect);
 			}
 			else
 			{
@@ -58,22 +60,18 @@ namespace SociallyAwesomated.App.ViewModels
 					ConsumerKey = "asdfghjkl Put your cryptic token here asdfghjkl",
 					ConsumerSecret = "asdfghjkl Put your cryptic token here asdfghjkl"
 				};
+
+				BusyVisibility = ToVisibility(true);
 			}
 
 			CallbackUrl = oathConfiguration?.CallbackUri;
 			ConsumerKey = oathConfiguration?.ConsumerKey;
 			ConsumerSecrect = oathConfiguration?.ConsumerSecret;
-			Tweets = new ObservableCollection<Tweet>();
 
-			ConnectCommand = new RelayCommand(Connect, CanConnect);
-			FindCommand = new RelayCommand(Find, CanFind);
-
-			BusyVisibility = ToVisibility(false);
-
-			if (!IsDesignModeEnabled)
-			{
-				InitializeTwitter();
-			}
+			//if (!IsDesignModeEnabled)
+			//{
+			//	InitializeTwitter();
+			//}
 		}
 
 		public Visibility BusyVisibility
@@ -121,21 +119,6 @@ namespace SociallyAwesomated.App.ViewModels
 			}
 		}
 
-		public string Filter
-		{
-			get
-			{
-				return _filter;
-			}
-			set
-			{
-				if (SetValue(value, ref _filter))
-				{
-					((RelayCommand)FindCommand).RaiseCanExecuteChanged();
-				}
-			}
-		}
-
 		private bool IsBusy
 		{
 			get { return IsVisible(BusyVisibility); }
@@ -169,7 +152,7 @@ namespace SociallyAwesomated.App.ViewModels
 			set { SetValue(value, ref _messageVisibility); }
 		}
 
-		public override string PageTitle => "Twitter Automation";
+		public override string PageTitle => "Credentials";
 
 		public Uri UserImage
 		{
@@ -189,24 +172,13 @@ namespace SociallyAwesomated.App.ViewModels
 			set { SetValue(value, ref _userScreenName); }
 		}
 
-		public ObservableCollection<Tweet> Tweets
-		{
-			get { return _tweets; }
-			set { SetValue(value, ref _tweets); }
-		}
-
 		//----==== COMMANDS ====-------------------------------------------------------------------
 
 		public ICommand ConnectCommand { get; private set; }
 
-		public ICommand FindCommand { get; private set; }
-
 		public void ShowMessage(string message)
 		{
-			//if (_dispatcher != null)
-			//{
-			//	_dispatcher.BeginInvoke(() => MessageBox.Show(message));
-			//}
+			//Application.Current.CurrentDispatcher.BeginInvoke(() => MessageBox.Show(message));
 		}
 
 		//----==== PRIVATE ====-------------------------------------------------------------------
@@ -216,33 +188,11 @@ namespace SociallyAwesomated.App.ViewModels
 			return !string.IsNullOrEmpty(CallbackUrl) && !string.IsNullOrEmpty(ConsumerKey) && !string.IsNullOrEmpty(ConsumerSecrect);
 		}
 
-		private bool CanFind()
-		{
-			return !string.IsNullOrEmpty(Filter) && Filter.Length > 3;
-		}
-
 		private void Connect()
 		{
 			TwitterService.Instance.Logout();
 
 			InitializeTwitter();
-		}
-
-		private void Find()
-		{
-			FetchTweets(Filter);
-		}
-
-		private string GetAccount(string account)
-		{
-			string result = null;
-
-			if (account != null && account.IndexOf(ATTAG) == 0)
-			{
-				result = account.Replace(ATTAG, string.Empty);
-			}
-
-			return result;
 		}
 
 		private async void InitializeTwitter()
@@ -257,48 +207,17 @@ namespace SociallyAwesomated.App.ViewModels
 
 				var user = await TwitterService.Instance.GetUserAsync();
 
-				UserScreenName = user.ScreenName;
-				UserImage = new Uri(user.ProfileImageUrl);
+				if (user != null)
+				{
+					UserScreenName = user.ScreenName;
+					UserImage = new Uri(user.ProfileImageUrl);
 
-				Message = $"Logged in as {user.ScreenName}";
-
-				FetchTweets($"@{user.ScreenName}");
+					Message = $"Logged in as {user.ScreenName}";
+				}
 			}
 			catch (Exception ex)
 			{
 				ShowMessage(ex.Message);
-			}
-			finally
-			{
-				IsBusy = false;
-			}
-		}
-
-		private async void FetchTweets(string fetchText)
-		{
-			IEnumerable<Tweet> timeLine = null;
-
-			try
-			{
-				IsBusy = true;
-
-				var filter = GetAccount(fetchText);
-
-				if (filter != null)
-				{
-					timeLine = await TwitterService.Instance.GetUserTimeLineAsync(filter, 10);
-				}
-				else
-				{
-					timeLine = await TwitterService.Instance.SearchAsync(fetchText, 10);
-				}
-
-				Tweets.Clear();
-
-				foreach (var tweet in timeLine)
-				{
-					Tweets.Add(tweet);
-				}
 			}
 			finally
 			{

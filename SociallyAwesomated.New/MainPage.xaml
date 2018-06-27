@@ -51,11 +51,11 @@
 			</NavigationView.MenuItems>
 
 			<Frame x:Name="uxContent">
-				<!--<Frame.ContentTransitions>
+				<Frame.ContentTransitions>
 					<TransitionCollection>
 						<NavigationThemeTransition />
 					</TransitionCollection>
-				</Frame.ContentTransitions>-->
+				</Frame.ContentTransitions>
 			</Frame>
 		</NavigationView>
 	</Grid>

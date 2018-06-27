@@ -4,14 +4,35 @@
 	  xmlns:local="using:SociallyAwesomated.App"
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	  xmlns:viewModels="using:SociallyAwesomated.App.ViewModels"
 	  mc:Ignorable="d"
 	  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+	<Page.DataContext>
+		<viewModels:TwitterEventsViewModel />
+	</Page.DataContext>
+
+	<Page.Resources>
+		<ResourceDictionary>
+			<DataTemplate x:Name="TweetTemplate">
+				<Grid HorizontalAlignment="Stretch">
+					<Rectangle Fill="White"
+							   Opacity="0.15" />
+					<TextBlock Text="{Binding Text}"
+							   TextWrapping="Wrap"
+							   FontSize="25"
+							   Margin="0,8,0,8"
+							   VerticalAlignment="Center" />
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
+	</Page.Resources>
 
 	<Grid>
 		<TextBlock Text="Tweets"
 				   FontSize="{StaticResource HubHeaderThemeFontSize}"
 				   Margin="10" />
-		<!--
+		
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
@@ -35,11 +56,26 @@
 						   HorizontalAlignment="Center" />
 			</StackPanel>
 
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<TextBox x:Name="uxFilter"
+						 Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+				<Button x:Name="uxFind"
+						Grid.Column="1"
+						Content="Find"
+						Command="{Binding FindCommand}" />
+			</Grid>
+
 			<ListBox x:Name="uxTweets"
 					 Grid.Row="1"
 					 ItemsSource="{Binding Tweets}"
 					 ItemTemplate="{StaticResource TweetTemplate}" />
 		</Grid>
-		 -->
+		 
 	</Grid>
 </Page>
