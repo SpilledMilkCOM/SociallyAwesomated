@@ -24,6 +24,11 @@ All of the unit tests for the UW projects.
 * Test Community Toolkit for Followers
 * Figure out what hashtags are trending the best to include them in a tweet.  Start with movie titles.
 
+#### Lessons Learned
+
+* How to get the NavigationView up and running.
+* The "views" (Page's) **must** have code-behind that includes the `InitializeComponent()` in the constructor *(at the very least)* otherwise you will see nothing and get no errors when using `Frame.Navigate()`. Creating a "blank" view isn't enough.
+
 #### References
 * [Navigation view](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview)
 * [Using the NavigationView in your UWP applications](https://blogs.msdn.microsoft.com/appconsult/2018/05/06/using-the-navigationview-in-your-uwp-applications/)

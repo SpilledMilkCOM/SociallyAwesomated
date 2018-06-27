@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace SociallyAwesomated.App
 {
+	/// <summary>
+	/// This MenuModel is the mapping between text and view Types; there is NO knowledge of any UI specific values.
+	/// </summary>
     public class MenuModel
     {
 		public const string FACEBOOK_EVENTS = "Facebook.Events";

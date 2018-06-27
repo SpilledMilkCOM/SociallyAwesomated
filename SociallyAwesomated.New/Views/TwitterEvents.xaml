@@ -9,7 +9,7 @@
 
 	<Grid>
 		<TextBlock Text="Tweets"
-				   FontSize="{StaticResource ControlContentThemeFontSize}"
+				   FontSize="{StaticResource HubHeaderThemeFontSize}"
 				   Margin="10" />
 		<!--
 		<Grid>

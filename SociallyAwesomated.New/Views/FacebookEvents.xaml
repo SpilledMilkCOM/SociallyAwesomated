@@ -10,7 +10,7 @@
 
     <Grid>
 		<TextBlock Text="Statuses"
-				   FontSize="{StaticResource ControlContentThemeFontSize}"
+				   FontSize="{StaticResource HubHeaderThemeFontSize}"
 				   Margin="10" />
 	</Grid>
 </Page>
