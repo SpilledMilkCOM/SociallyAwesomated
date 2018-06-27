@@ -37,7 +37,27 @@ namespace SociallyAwesomated.App.ViewModels
 
 				// TODO: File name from configuration.
 
-				oathConfiguration = test.Load("OAuth.default.secret.json");        // File is marked as "content" - Copy if newer.
+				try
+				{
+					oathConfiguration = test.Load("OAuth.default.secret.json");        // File is marked as "content" - Copy if newer.
+				}
+				catch (Exception ex)
+				{
+					throw ex;
+				}
+			}
+			else
+			{
+				// Some design-time data.
+
+				oathConfiguration = new OAuthCredentials
+				{
+					AccessToken = "asdfghjkl Put your cryptic token here asdfghjkl",
+					AccessTokenSecret = "asdfghjkl Put your cryptic token here asdfghjkl",
+					CallbackUri = "http://www.SpilledMilk.com",
+					ConsumerKey = "asdfghjkl Put your cryptic token here asdfghjkl",
+					ConsumerSecret = "asdfghjkl Put your cryptic token here asdfghjkl"
+				};
 			}
 
 			CallbackUrl = oathConfiguration?.CallbackUri;

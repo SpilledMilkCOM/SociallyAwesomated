@@ -25,7 +25,7 @@
 				
 				<NavigationViewItem Icon="Street"
 									Tag="Twitter.Events">
-					<TextBlock Text="Events"
+					<TextBlock Text="Tweets"
 							   Tag="Twitter.Events" />
 				</NavigationViewItem>
 				
@@ -39,13 +39,13 @@
 
 				<NavigationViewItem Icon="Street"
 									Tag="Facebook.Events">
-					<TextBlock Text="Events"
+					<TextBlock Text="Statuses"
 							   Tag="Facebook.Events" />
 				</NavigationViewItem>
 				
 				<NavigationViewItem Icon="Contact2"
 									Tag="Facebook.Followers">
-					<TextBlock Text="Followers"
+					<TextBlock Text="Friends"
 							   Tag="Facebook.Followers" />
 				</NavigationViewItem>
 			</NavigationView.MenuItems>
