@@ -190,7 +190,16 @@ namespace SociallyAwesomated.App.ViewModels
 
 		private void Connect()
 		{
-			TwitterService.Instance.Logout();
+			try
+			{
+				TwitterService.Instance.Initialize(ConsumerKey, ConsumerSecrect, CallbackUrl);
+
+				TwitterService.Instance.Logout();
+			}
+			catch (Exception ex)
+			{
+				// GULP - In order to logout you have to initialize, seems like a chicken/egg problem
+			}
 
 			InitializeTwitter();
 		}
@@ -205,6 +214,14 @@ namespace SociallyAwesomated.App.ViewModels
 
 				TwitterService.Instance.Initialize(ConsumerKey, ConsumerSecrect, CallbackUrl);
 
+				// Login to Twitter
+				if (!await TwitterService.Instance.LoginAsync())
+				{
+					Message = "Logon Failed.";
+
+					return;
+				}
+
 				var user = await TwitterService.Instance.GetUserAsync();
 
 				if (user != null)
@@ -217,6 +234,8 @@ namespace SociallyAwesomated.App.ViewModels
 			}
 			catch (Exception ex)
 			{
+				Message = $"Failed to logon: {ex.Message}";
+
 				ShowMessage(ex.Message);
 			}
 			finally

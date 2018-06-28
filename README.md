@@ -32,9 +32,11 @@ All of the unit tests for the UW projects.
 * The "views" (Page's) **must** have code-behind that includes the `InitializeComponent()` in the constructor *(at the very least)* otherwise you will see nothing and get no errors when using `Frame.Navigate()`.
 Creating a "blank" view isn't enough.
 * Using a `string` for the Content in a `NavigationViewItem` will not allow for the **same** text for different items.
+You may want to group like menu items with headers and have the same text. 
 It **works**, but you'll never be able to find any item after the first one you found.
 Use a TextBlock with a Tag that matches the Tag in the item.
 
 #### References
 * [Navigation view](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview)
 * [Using the NavigationView in your UWP applications](https://blogs.msdn.microsoft.com/appconsult/2018/05/06/using-the-navigationview-in-your-uwp-applications/)
+* [Twitter Service](https://docs.microsoft.com/en-us/windows/uwpcommunitytoolkit/services/twitter)
