@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Uwp.Services.Twitter;
+﻿using Microsoft.Toolkit.Uwp.Connectivity;
+using Microsoft.Toolkit.Uwp.Services.Twitter;
 using SM.Common;
 using SM.Common.Interfaces;
 using SM.Common.ViewModels;
@@ -22,13 +23,12 @@ namespace SociallyAwesomated.App.ViewModels
 		private string _message;
 		private Brush _messageBrush;
 		private Visibility _messageVisibility;
+		private IOAuthCredentials _oauthCredentials;
 		private Uri _userImage;
 		private string _userScreenName;
 
 		public CredentialsViewModel()
 		{
-			IOAuthCredentials oathConfiguration = null;
-
 			if (!Windows.ApplicationModel.DesignMode.DesignModeEnabled)
 			{
 				var test = new OAuthCredentialLoader();
@@ -37,7 +37,7 @@ namespace SociallyAwesomated.App.ViewModels
 
 				try
 				{
-					oathConfiguration = test.Load("OAuth.default.secret.json");        // File is marked as "content" - Copy if newer.
+					_oauthCredentials = test.Load("OAuth.default.secret.json");        // File is marked as "content" - Copy if newer.
 				}
 				catch (Exception ex)
 				{
@@ -52,7 +52,7 @@ namespace SociallyAwesomated.App.ViewModels
 			{
 				// Some design-time data.
 
-				oathConfiguration = new OAuthCredentials
+				_oauthCredentials = new OAuthCredentials
 				{
 					AccessToken = "asdfghjkl Put your cryptic token here asdfghjkl",
 					AccessTokenSecret = "asdfghjkl Put your cryptic token here asdfghjkl",
@@ -64,9 +64,9 @@ namespace SociallyAwesomated.App.ViewModels
 				BusyVisibility = ToVisibility(true);
 			}
 
-			CallbackUrl = oathConfiguration?.CallbackUri;
-			ConsumerKey = oathConfiguration?.ConsumerKey;
-			ConsumerSecrect = oathConfiguration?.ConsumerSecret;
+			CallbackUrl = _oauthCredentials?.CallbackUri;
+			ConsumerKey = _oauthCredentials?.ConsumerKey;
+			ConsumerSecrect = _oauthCredentials?.ConsumerSecret;
 
 			//if (!IsDesignModeEnabled)
 			//{
@@ -192,7 +192,17 @@ namespace SociallyAwesomated.App.ViewModels
 		{
 			try
 			{
+				var twitterAuth = new TwitterOAuthTokens
+				{
+					//AccessToken = _oauthCredentials.AccessToken,
+					//AccessTokenSecret = _oauthCredentials.AccessTokenSecret,
+					CallbackUri = CallbackUrl,
+					ConsumerKey = ConsumerKey,
+					ConsumerSecret = ConsumerSecrect
+				};
+
 				TwitterService.Instance.Initialize(ConsumerKey, ConsumerSecrect, CallbackUrl);
+				//TwitterService.Instance.Initialize(twitterAuth);
 
 				TwitterService.Instance.Logout();
 			}
@@ -210,7 +220,24 @@ namespace SociallyAwesomated.App.ViewModels
 			{
 				IsBusy = true;
 
+				if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
+				{
+					Message = "No Internet";
+
+					return;
+				}
+
 				Message = "Logging into Twitter...";
+
+				var twitterAuth = new TwitterOAuthTokens
+				{
+					//AccessToken = _oauthCredentials.AccessToken,
+					//AccessTokenSecret = _oauthCredentials.AccessTokenSecret,
+					CallbackUri = CallbackUrl,
+					ConsumerKey = ConsumerKey,
+					ConsumerSecret = ConsumerSecrect
+				};
+				//TwitterService.Instance.Initialize(twitterAuth);
 
 				TwitterService.Instance.Initialize(ConsumerKey, ConsumerSecrect, CallbackUrl);
 
@@ -232,8 +259,12 @@ namespace SociallyAwesomated.App.ViewModels
 					Message = $"Logged in as {user.ScreenName}";
 				}
 			}
-			catch (Exception ex)
+			catch (TwitterException ex)
 			{
+				if (ex.Errors?.Errors?.Length > 0 && ex.Errors.Errors[0].Code == 89)
+				{
+				}
+
 				Message = $"Failed to logon: {ex.Message}";
 
 				ShowMessage(ex.Message);
