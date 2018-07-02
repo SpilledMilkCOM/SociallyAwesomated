@@ -29,11 +29,16 @@
 	</Page.Resources>
 
 	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		
 		<TextBlock Text="Tweets"
 				   FontSize="{StaticResource HubHeaderThemeFontSize}"
 				   Margin="10" />
 		
-		<Grid>
+		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="*" />

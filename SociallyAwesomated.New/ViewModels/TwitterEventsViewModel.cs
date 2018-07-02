@@ -28,7 +28,7 @@ namespace SociallyAwesomated.App.ViewModels
 			{
 				FindCommand = new RelayCommand(Find, CanFind);
 
-				//FetchTweets($"@{user.ScreenName}");
+				FetchTweets(null);
 			}
 			else
 			{
@@ -128,9 +128,14 @@ namespace SociallyAwesomated.App.ViewModels
 
 				var filter = GetAccount(fetchText);
 
-				if (filter != null)
+				if (filter == null)
 				{
-					timeLine = await TwitterService.Instance.GetUserTimeLineAsync(filter, 10);
+					var user = await TwitterService.Instance.GetUserAsync();
+
+					if (user!= null)
+					{
+						timeLine = await TwitterService.Instance.GetUserTimeLineAsync(user.ScreenName, 10);
+					}
 				}
 				else
 				{

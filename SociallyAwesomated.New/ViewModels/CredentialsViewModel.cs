@@ -62,6 +62,8 @@ namespace SociallyAwesomated.App.ViewModels
 				};
 
 				BusyVisibility = ToVisibility(true);
+
+				UserImage = new Uri("http://checkoutmystuff.net/Images/Check Out My Stuff Logo.png");
 			}
 
 			CallbackUrl = _oauthCredentials?.CallbackUri;
