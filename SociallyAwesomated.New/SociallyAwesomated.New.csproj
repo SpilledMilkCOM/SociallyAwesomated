@@ -99,9 +99,11 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\MyTwitterUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CredentialsViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\TwitterFollowersViewModel.cs" />
     <Compile Include="ViewModels\TwitterEventsViewModel.cs" />
     <Compile Include="Views\Credentials.xaml.cs">
       <DependentUpon>Credentials.xaml</DependentUpon>
@@ -111,6 +113,9 @@
     </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TwitterFollowers.xaml.cs">
+      <DependentUpon>TwitterFollowers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TwitterEvents.xaml.cs">
       <DependentUpon>TwitterEvents.xaml</DependentUpon>
@@ -154,6 +159,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TwitterFollowers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

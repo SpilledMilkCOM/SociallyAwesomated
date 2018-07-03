@@ -178,11 +178,6 @@ namespace SociallyAwesomated.App.ViewModels
 
 		public ICommand ConnectCommand { get; private set; }
 
-		public void ShowMessage(string message)
-		{
-			//Application.Current.CurrentDispatcher.BeginInvoke(() => MessageBox.Show(message));
-		}
-
 		//----==== PRIVATE ====-------------------------------------------------------------------
 
 		private bool CanConnect()
@@ -261,15 +256,13 @@ namespace SociallyAwesomated.App.ViewModels
 					Message = $"Logged in as {user.ScreenName}";
 				}
 			}
-			catch (TwitterException ex)
+			catch (TwitterException tex)
 			{
-				if (ex.Errors?.Errors?.Length > 0 && ex.Errors.Errors[0].Code == 89)
+				if (tex.Errors?.Errors?.Length > 0 && tex.Errors.Errors[0].Code == 89)
 				{
 				}
 
-				Message = $"Failed to logon: {ex.Message}";
-
-				ShowMessage(ex.Message);
+				Message = $"Failed to logon: {tex.Message}";
 			}
 			finally
 			{

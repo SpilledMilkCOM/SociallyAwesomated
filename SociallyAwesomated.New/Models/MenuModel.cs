@@ -28,7 +28,7 @@ namespace SociallyAwesomated.App
 			_viewMap.Add(FACEBOOK_FOLLOWERS, typeof(FacebookEvents));
 			_viewMap.Add(HOME, typeof(Home));
 			_viewMap.Add(TWITTER_EVENTS, typeof(TwitterEvents));
-			_viewMap.Add(TWITTER_FOLLOWERS, typeof(TwitterEvents));
+			_viewMap.Add(TWITTER_FOLLOWERS, typeof(TwitterFollowers));
 		}
 
 		public string SettingsMap => SETTINGS;
