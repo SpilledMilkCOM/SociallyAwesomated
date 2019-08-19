@@ -4,8 +4,6 @@ using SM.Common;
 using SM.Common.Interfaces;
 using SM.Common.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
