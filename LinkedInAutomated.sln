@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LICLI", "LinkedInAutomated\LICLI\LICLI.csproj", "{39D8F255-B414-4F9E-BD89-6DC0F0362274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.LinkedIn", "SM.LinkedIn\SM.LinkedIn.csproj", "{A1A1916D-6030-4C18-8034-3280FA3C369A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Test.LinkedIn", "SM.Test.LinkedIn\SM.Test.LinkedIn.csproj", "{49B946FE-E67D-4D7E-818C-C5A2F1E9D230}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{AAB38ABC-CB5F-4F17-870F-13B8931FAEB0}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.OAuth2", "SM.OAuth2\SM.OAuth2.csproj", "{3099F32D-73D3-42DF-93C8-EAEE93C0D674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Interfaces", "SM.Interfaces\SM.Interfaces.csproj", "{BEDF1509-E081-4C5F-A822-93DD4662AF92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39D8F255-B414-4F9E-BD89-6DC0F0362274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D8F255-B414-4F9E-BD89-6DC0F0362274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D8F255-B414-4F9E-BD89-6DC0F0362274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D8F255-B414-4F9E-BD89-6DC0F0362274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1A1916D-6030-4C18-8034-3280FA3C369A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A1916D-6030-4C18-8034-3280FA3C369A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A1916D-6030-4C18-8034-3280FA3C369A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A1916D-6030-4C18-8034-3280FA3C369A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B946FE-E67D-4D7E-818C-C5A2F1E9D230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B946FE-E67D-4D7E-818C-C5A2F1E9D230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B946FE-E67D-4D7E-818C-C5A2F1E9D230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B946FE-E67D-4D7E-818C-C5A2F1E9D230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3099F32D-73D3-42DF-93C8-EAEE93C0D674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3099F32D-73D3-42DF-93C8-EAEE93C0D674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3099F32D-73D3-42DF-93C8-EAEE93C0D674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3099F32D-73D3-42DF-93C8-EAEE93C0D674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDF1509-E081-4C5F-A822-93DD4662AF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDF1509-E081-4C5F-A822-93DD4662AF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDF1509-E081-4C5F-A822-93DD4662AF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDF1509-E081-4C5F-A822-93DD4662AF92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B5172A3-701B-4F08-8C9C-6364EAD8C7A1}
+	EndGlobalSection
+EndGlobal
