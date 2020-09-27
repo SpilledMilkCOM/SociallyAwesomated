@@ -11,5 +11,7 @@
 		string ConsumerKey { get; set; }
 
 		string ConsumerSecret { get; set; }
+
+		public string TokenUrl { get; set; }
 	}
 }

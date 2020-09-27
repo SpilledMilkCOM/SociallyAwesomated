@@ -13,5 +13,7 @@ namespace SM.Common
 		public string ConsumerKey { get; set; }
 
 		public string ConsumerSecret { get; set; }
+
+		public string TokenUrl { get; set; }
 	}
 }

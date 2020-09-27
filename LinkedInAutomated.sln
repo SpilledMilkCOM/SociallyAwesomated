@@ -5,18 +5,21 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LICLI", "LinkedInAutomated\LICLI\LICLI.csproj", "{39D8F255-B414-4F9E-BD89-6DC0F0362274}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.LinkedIn", "SM.LinkedIn\SM.LinkedIn.csproj", "{A1A1916D-6030-4C18-8034-3280FA3C369A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.LinkedIn", "SM.LinkedIn\SM.LinkedIn.csproj", "{A1A1916D-6030-4C18-8034-3280FA3C369A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Test.LinkedIn", "SM.Test.LinkedIn\SM.Test.LinkedIn.csproj", "{49B946FE-E67D-4D7E-818C-C5A2F1E9D230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Test.LinkedIn", "SM.Test.LinkedIn\SM.Test.LinkedIn.csproj", "{49B946FE-E67D-4D7E-818C-C5A2F1E9D230}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{AAB38ABC-CB5F-4F17-870F-13B8931FAEB0}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.OAuth2", "SM.OAuth2\SM.OAuth2.csproj", "{3099F32D-73D3-42DF-93C8-EAEE93C0D674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.OAuth2", "SM.OAuth2\SM.OAuth2.csproj", "{3099F32D-73D3-42DF-93C8-EAEE93C0D674}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Interfaces", "SM.Interfaces\SM.Interfaces.csproj", "{BEDF1509-E081-4C5F-A822-93DD4662AF92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Interfaces", "SM.Interfaces\SM.Interfaces.csproj", "{BEDF1509-E081-4C5F-A822-93DD4662AF92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Common.REST", "SM.Common.REST\SM.Common.REST.csproj", "{852E1542-EF57-41C5-A75C-95C7082DE5BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +47,10 @@ Global
 		{BEDF1509-E081-4C5F-A822-93DD4662AF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEDF1509-E081-4C5F-A822-93DD4662AF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEDF1509-E081-4C5F-A822-93DD4662AF92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852E1542-EF57-41C5-A75C-95C7082DE5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852E1542-EF57-41C5-A75C-95C7082DE5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852E1542-EF57-41C5-A75C-95C7082DE5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852E1542-EF57-41C5-A75C-95C7082DE5BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SM.Common.REST\SM.Common.REST.csproj" />
     <ProjectReference Include="..\SM.Interfaces\SM.Interfaces.csproj" />
   </ItemGroup>
 

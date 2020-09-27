@@ -40,3 +40,5 @@ Use a TextBlock with a Tag that matches the Tag in the item.
 * [Navigation view](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview)
 * [Using the NavigationView in your UWP applications](https://blogs.msdn.microsoft.com/appconsult/2018/05/06/using-the-navigationview-in-your-uwp-applications/)
 * [Twitter Service](https://docs.microsoft.com/en-us/windows/uwpcommunitytoolkit/services/twitter)
+* [LinkedIn API Documentation](https://docs.microsoft.com/en-us/linkedin/)
+* [LinkedIn DEV](https://www.linkedin.com/developers/)
