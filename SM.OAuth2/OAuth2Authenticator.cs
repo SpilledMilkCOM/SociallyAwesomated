@@ -2,6 +2,7 @@
 using SM.Common.REST.Interfaces;
 using SM.Common.Serialization;
 using SM.Interfaces;
+using System;
 using System.Text.RegularExpressions;
 
 namespace SM.OAuth2
@@ -21,7 +22,7 @@ namespace SM.OAuth2
 
 		public void Authenticate()
 		{
-//			var urlRegex = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&%\$#_]*)?$");
+			//			var urlRegex = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&%\$#_]*)?$");
 			var urlRegex = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)");
 			var match = urlRegex.Match(_credentials.TokenUrl);
 
@@ -39,6 +40,11 @@ namespace SM.OAuth2
 			if (responseData != null)
 			{
 				var tokenResponse = _serializationUtility.Deserialize<TokenResponse>(responseData);
+
+				if (!string.IsNullOrEmpty(tokenResponse.error))
+				{
+					throw new Exception($"Authentication Error: {tokenResponse.error} - {tokenResponse.error_description}");
+				}
 
 				_credentials.AccessToken = tokenResponse.access_token;
 			}

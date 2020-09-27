@@ -41,7 +41,7 @@ namespace SM.Test.LinkedIn
 			_iocContainer = serviceCollection;
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Integration")]
 		public void Authenticate()
 		{
 			var test = ConstructTestObject();

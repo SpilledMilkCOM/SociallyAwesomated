@@ -9,7 +9,7 @@ using System.Text;
 namespace SM.Common.REST
 {
 	/// <summary>
-	/// A generic class that 
+	/// A generic class that makes REST calls (Get and Post for now)
 	/// </summary>
 	public class RestClient : IRestClient
 	{

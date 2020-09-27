@@ -17,6 +17,16 @@ namespace SM.OAuth2
 		public string access_token { get; set; }
 
 		/// <summary>
+		/// The type of error
+		/// </summary>
+		public string error { get; set; }
+
+		/// <summary>
+		/// A bit more detail on the error.
+		/// </summary>
+		public string error_description { get; set; }
+
+		/// <summary>
 		/// The number of seconds the key is valid.
 		/// </summary>
 		public int expires_in
