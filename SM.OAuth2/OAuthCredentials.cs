@@ -14,6 +14,10 @@ namespace SM.Common
 
 		public string ConsumerSecret { get; set; }
 
+		public string Scope { get; set; }
+
+		public string State { get; set; }
+
 		public string TokenUrl { get; set; }
 	}
 }

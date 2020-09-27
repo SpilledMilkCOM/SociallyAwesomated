@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Web;
 
 namespace SM.Common.REST
 {
@@ -63,7 +64,7 @@ namespace SM.Common.REST
 				_parameters += "&";
 			}
 
-			_parameters += $"{key}={value}";
+			_parameters += $"{key}={HttpUtility.UrlEncode(value)}";
 		}
 
 		/// <summary>

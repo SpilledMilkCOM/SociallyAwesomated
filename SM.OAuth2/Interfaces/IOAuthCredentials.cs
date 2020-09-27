@@ -12,6 +12,10 @@
 
 		string ConsumerSecret { get; set; }
 
+		string Scope { get; set; }
+
+		string State { get; set; }
+
 		public string TokenUrl { get; set; }
 	}
 }

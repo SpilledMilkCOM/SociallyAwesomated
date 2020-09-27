@@ -46,6 +46,11 @@ namespace SM.OAuth2
 		}
 
 		/// <summary>
+		/// Sent with an authorization request to prevent CSRF hacks
+		/// </summary>
+		public string state { get; set; }
+
+		/// <summary>
 		/// The type of token to be sent in the "Authorization" header.
 		/// </summary>
 		public string token_type { get; set; }

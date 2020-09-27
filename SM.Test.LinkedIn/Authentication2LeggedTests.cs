@@ -12,7 +12,7 @@ namespace SM.Test.LinkedIn
 {
 	[TestClass]
 	//[DeploymentItem("OAuth.secret.json")]			Not really being "deployed" to the bin folder
-	public class AuthenticationTests
+	public class Authentication2LeggedTests
 	{
 		private static IServiceCollection _iocContainer = null;
 
@@ -27,14 +27,14 @@ namespace SM.Test.LinkedIn
 
 			var serviceProvider = serviceCollection.BuildServiceProvider();
 			var loader = serviceProvider.GetService<IConfigurationLoader>();
-			var credentials = loader.Load<OAuthCredentials>("..\\..\\..\\OAuth.secret.json");
+			var credentials = loader.Load<OAuthCredentials>("..\\..\\..\\OAuth-2-legged.secret.json");
 
 			serviceCollection.AddTransient<IRestClientOptions, RestClientOptions>(serviceProvider => new RestClientOptions(credentials.TokenUrl));
 			serviceCollection.AddSingleton<IRestClient, RestClient>();
 			serviceCollection.AddSingleton<ISerializationUtility, JsonSerializationUtility>();
 
-			serviceCollection.AddTransient<IAuthenticator, OAuth2Authenticator>(serviceProvider =>
-					new OAuth2Authenticator(serviceProvider.GetService<IRestClient>()
+			serviceCollection.AddTransient<IAuthenticator, OAuth2LeggedAuthenticator>(serviceProvider =>
+					new OAuth2LeggedAuthenticator(serviceProvider.GetService<IRestClient>()
 											, credentials
 											, serviceProvider.GetService<ISerializationUtility>()));
 
@@ -42,7 +42,7 @@ namespace SM.Test.LinkedIn
 		}
 
 		[TestMethod, TestCategory("Integration")]
-		public void Authenticate()
+		public void Authenticate2Legged()
 		{
 			var test = ConstructTestObject();
 

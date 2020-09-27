@@ -7,13 +7,13 @@ using System.Text.RegularExpressions;
 
 namespace SM.OAuth2
 {
-	public class OAuth2Authenticator : IAuthenticator
+	public class OAuth3LeggedAuthenticator : IAuthenticator
 	{
 		private readonly IRestClient _client;
 		private readonly IOAuthCredentials _credentials;
 		private readonly ISerializationUtility _serializationUtility;
 
-		public OAuth2Authenticator(IRestClient client, IOAuthCredentials credentials, ISerializationUtility serializationUtility)
+		public OAuth3LeggedAuthenticator(IRestClient client, IOAuthCredentials credentials, ISerializationUtility serializationUtility)
 		{
 			_client = client;
 			_credentials = credentials;
@@ -22,6 +22,7 @@ namespace SM.OAuth2
 
 		public void Authenticate()
 		{
+			string responseData = null;
 			//			var urlRegex = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&%\$#_]*)?$");
 			var urlRegex = new Regex(@"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)");
 			var match = urlRegex.Match(_credentials.TokenUrl);
@@ -32,10 +33,15 @@ namespace SM.OAuth2
 				_client.EndpointMethod = _credentials.TokenUrl.Replace(_client.BaseAddress, string.Empty);
 			}
 
-			_client.ContentType = "application/x-www-form-urlencoded";
+			// https://docs.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow?context=linkedin/context
 
-			//&scope={OAuthClientScope}
-			var responseData = _client.Post($"grant_type=client_credentials&client_id={_credentials.ConsumerKey}&client_secret={_credentials.ConsumerSecret}");
+			_client.AddParameter("response_type", "code");
+			_client.AddParameter("client_id", _credentials.ConsumerKey);
+			_client.AddParameter("redirect_uri", _credentials.CallbackUri);
+			_client.AddParameter("state", _credentials.State);
+			_client.AddParameter("scope", _credentials.Scope);
+
+			responseData = _client.Get();
 
 			if (responseData != null)
 			{
